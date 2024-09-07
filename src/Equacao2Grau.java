@@ -18,7 +18,7 @@ public class Equacao2Grau {
     }
     
     public double getCalcDelta(){
-        double delta;
+        double delta, b;
         delta = Math.pow(b, 2);
         return delta;
     }
