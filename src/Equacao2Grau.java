@@ -13,37 +13,29 @@ public class Equacao2Grau {
         coef_C = c;   
     }
 
-    Equacao2Grau(String equacao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public double getCalcDelta(){
-        double delta, b;
-        delta = Math.pow(b, 2);
+    public double calcDelta(){
+        double delta;
+        delta = (coef_B * coef_B) - (4 * coef_A * coef_C);
         return delta;
     }
     
-    public double getCalcRaiz(int resultado){
-        double delta, a, b, c;
-        int raiz0, raiz1, raiz2;
+    public double calcRaiz(int identificacaoRaiz){
+        double raiz1, raiz2;
+        double delta = calcDelta();
         
-        delta = calcDelta();
-        if (delta < 0) {
-            System.out.println("A equação não possui raízes reais.");
-        } else {
-            if (delta = 0){
-                int raiz0 = (int) ((-b + Math.sqrt(delta)) / (2 * a));
-                return raiz0;
-            }else{
-                int raiz1 = (int) ((-b + Math.sqrt(delta)) / (2 * a));
-                int raiz2 = (int) ((-b - Math.sqrt(delta)) / (2 * a));
-                return raiz1, raiz2;
-            }
-        }    
+        if(delta >= 0){
+            if(identificacaoRaiz == 1){
+                return raiz1 = ((-coef_B + Math.sqrt(delta))/(2*coef_A));
+            }else
+                if (identificacaoRaiz == 2){
+                    return raiz2 = ((-coef_B - Math.sqrt(delta))/(2*coef_A));
+                }                        
+        }
+        return 0.0;
     }
     
-    public String setExibeEquacao(){
-        String equacao
-       equacao = eq;
+    public String exibeEquacao(){
+        
+        return "Equação: " + coef_A + "X² + " + coef_B + "X + " + coef_C;
     }
 }
